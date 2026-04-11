@@ -1,0 +1,148 @@
+import React from 'react';
+import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter, ArrowUp } from 'lucide-react';
+
+export default function Footer() {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const quickLinks = [
+    { label: 'Home', href: '#home' },
+    { label: 'About Us', href: '#about-us' },
+    { label: 'Services', href: '#services' },
+    { label: 'Projects', href: '#projects' },
+    { label: 'Contact', href: '#contact' }
+  ];
+
+  const services = [
+    'Residential Construction',
+    'Commercial Projects',
+    'Infrastructure Development',
+    'Renovation & Contracting'
+  ];
+
+  return (
+    <footer className="bg-gray-900 relative">
+      {/* Orange Geometric Pattern */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-orange-500" />
+      <div className="absolute top-0 left-0 right-0 overflow-hidden h-32 opacity-5">
+        <div className="absolute -top-16 left-1/4 w-64 h-64 border-4 border-orange-500 rotate-45" />
+        <div className="absolute -top-20 right-1/4 w-48 h-48 border-4 border-orange-500 rotate-12" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 relative z-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+          {/* Brand Column */}
+          <div className="lg:col-span-1">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-xl">U</span>
+              </div>
+              <div>
+                <h3 className="font-bold text-white text-lg">UTKARSH INFRATECH</h3>
+                <p className="text-orange-500 text-xs tracking-widest uppercase">Builder & Contractor</p>
+              </div>
+            </div>
+            <p className="text-gray-400 leading-relaxed mb-6">
+              Building trust and delivering quality since 2009. Your vision, our expertise — together we create lasting structures.
+            </p>
+            <div className="flex gap-3">
+              {[Facebook, Instagram, Linkedin, Twitter].map((Icon, index) => (
+                <a
+                  key={index}
+                  href__="#"
+                  className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:bg-orange-500 hover:text-white transition-all duration-300"
+                >
+                  <Icon className="w-5 h-5" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-orange-500" />
+              Quick Links
+            </h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href__={link.href}
+                    className="text-gray-400 hover:text-orange-500 transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="w-0 group-hover:w-2 h-0.5 bg-orange-500 transition-all duration-300" />
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-orange-500" />
+              Our Services
+            </h4>
+            <ul className="space-y-3">
+              {services.map((service) => (
+                <li key={service}>
+                  <a
+                    href__="#services"
+                    className="text-gray-400 hover:text-orange-500 transition-colors flex items-center gap-2 group"
+                  >
+                    <span className="w-0 group-hover:w-2 h-0.5 bg-orange-500 transition-all duration-300" />
+                    {service}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h4 className="text-white font-bold text-lg mb-6 flex items-center gap-2">
+              <span className="w-8 h-0.5 bg-orange-500" />
+              Contact Us
+            </h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin className="w-5 h-5 text-orange-500 mt-1 flex-shrink-0" />
+                <span className="text-gray-400">Gomti Nagar, Lucknow,<br />Uttar Pradesh - 226010</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone className="w-5 h-5 text-orange-500 flex-shrink-0" />
+                <div className="text-gray-400">
+                  <a href__="tel:+919876543210" className="hover:text-orange-500 transition-colors">+91 98765 43210</a>
+                  <br />
+                  <a href__="tel:+918765432109" className="hover:text-orange-500 transition-colors">+91 87654 32109</a>
+                </div>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail className="w-5 h-5 text-orange-500 flex-shrink-0" />
+                <a href__="mailto:info@utkarshinfratech.com" className="text-gray-400 hover:text-orange-500 transition-colors">
+                  info@utkarshinfratech.com
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-gray-500 text-sm text-center md:text-left">
+            © 2024 UTKARSH INFRATECH. All rights reserved.
+          </p>
+          <button
+            onClick={scrollToTop}
+            className="w-12 h-12 bg-orange-500 rounded-lg flex items-center justify-center text-white hover:bg-orange-600 transition-colors shadow-lg shadow-orange-500/30"
+          >
+            <ArrowUp className="w-5 h-5" />
+          </button>
+        </div>
+      </div>
+    </footer>
+  );
+}
