@@ -6,7 +6,13 @@ import { cn } from '@/lib/utils';
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import { PHONE_TEL_HREF, PHONE_DISPLAY } from '@/lib/contact';
+import {
+  PHONE_TEL_HREF,
+  PHONE_DISPLAY,
+  PHONE_DISPLAY_2,
+  BUSINESS_EMAIL,
+  MAILTO_HREF,
+} from '@/lib/contact';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -29,11 +35,12 @@ export default function Contact() {
         body: JSON.stringify(formData)
       });
       
+      const data = await response.json().catch(() => ({}));
       if (response.ok) {
-        toast.success('Thank you! We will contact you soon.');
+        toast.success(data.message || 'Thank you! We will contact you soon.');
         setFormData({ name: '', phone: '', email: '', message: '' });
       } else {
-        toast.error('Something went wrong. Please try again.');
+        toast.error(data.message || 'Something went wrong. Please try again.');
       }
     } catch (error) {
       console.error(error);
@@ -47,17 +54,17 @@ export default function Contact() {
     {
       icon: MapPin,
       title: 'Our Office',
-      details: ['Gomti Nagar', 'Lucknow, Uttar Pradesh', 'India - 226010']
+      details: ['Khasra No. 1229, Meera Vihar, Panchamkheda Road, RBL Road', 'Lucknow, Uttar Pradesh - 226010']
     },
     {
       icon: Phone,
       title: 'Call Us',
-      details: [PHONE_DISPLAY]
+      details: [PHONE_DISPLAY, PHONE_DISPLAY_2],
     },
     {
       icon: Mail,
       title: 'Email Us',
-      details: ['info@utkarshinfratech.com', 'projects@utkarshinfratech.com']
+      details: [BUSINESS_EMAIL],
     },
     {
       icon: Clock,
@@ -127,7 +134,7 @@ export default function Contact() {
                 Call Now
               </a>
               <a
-                href="mailto:info@utkarshinfratech.com"
+                href={MAILTO_HREF}
                 className={cn(
                   buttonVariants({ variant: 'outline' }),
                   'w-full border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white h-11 text-sm font-semibold sm:h-12 sm:text-base'
@@ -175,14 +182,18 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">Email Address *</label>
                   <Input
                     type="email"
                     placeholder="your@email.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    required
                     className="bg-white border-gray-200 h-12"
                   />
+                  <p className="text-xs text-gray-500 mt-1.5">
+                    We&apos;ll send a confirmation to this address.
+                  </p>
                 </div>
 
                 <div>
