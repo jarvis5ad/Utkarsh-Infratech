@@ -24,6 +24,7 @@ const fadeUp = {
   transition: { duration: 0.55 },
 };
 
+
 function SectionCard({ icon: Icon, title, children }) {
   return (
     <motion.div
