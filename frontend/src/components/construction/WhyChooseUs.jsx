@@ -54,7 +54,7 @@ export default function WhyChooseUs() {
             <div className="w-12 h-0.5 bg-orange-500" />
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
-            The <span className="text-orange-500">UTKARSH</span> Difference
+            The <span className="text-orange-500">UTKARSH'S</span> Difference
           </h2>
           <p className="text-gray-400 text-base sm:text-lg leading-relaxed">
             We don&apos;t just build structures—we build trust, relationships, and legacies that last for generations.

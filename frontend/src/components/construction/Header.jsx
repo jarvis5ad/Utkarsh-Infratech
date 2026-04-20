@@ -20,7 +20,7 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const sectionNavItems = ['Home', 'About Us', 'Services', 'Portfolio', 'Packages', 'Testimonials', 'Contact'];
+  const sectionNavItems = ['Home', 'About Us', 'Services', 'Projects', 'Packages', 'Testimonials', 'Contact'];
   const isHome = location.pathname === '/';
 
   const scrollToSection = (item) => {

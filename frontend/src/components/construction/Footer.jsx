@@ -1,6 +1,13 @@
 import React from 'react';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter, ArrowUp } from 'lucide-react';
-import { PHONE_TEL_HREF, PHONE_DISPLAY } from '@/lib/contact';
+import {
+  PHONE_TEL_HREF,
+  PHONE_TEL_HREF_2,
+  PHONE_DISPLAY,
+  PHONE_DISPLAY_2,
+  BUSINESS_EMAIL,
+  MAILTO_HREF,
+} from '@/lib/contact';
 import { BrandLogoMark } from '@/components/LogoText';
 
 export default function Footer() {
@@ -110,21 +117,26 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-orange-500 mt-0.5 flex-shrink-0" />
                 <span className="text-gray-400 leading-relaxed">
-                  Gomti Nagar, Lucknow,
+                Khasra No. 1229, Meera Vihar, Panchamkheda Road, RBL Road
                   <br />
-                  Uttar Pradesh - 226010
+                  Lucknow, Uttar Pradesh - 226010
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                <a href={PHONE_TEL_HREF} className="text-gray-400 hover:text-orange-500 transition-colors">
-                  {PHONE_DISPLAY}
-                </a>
+              <li className="flex items-start gap-3">
+                <Phone className="w-5 h-5 text-orange-500 flex-shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-1">
+                  <a href={PHONE_TEL_HREF} className="text-gray-400 hover:text-orange-500 transition-colors">
+                    {PHONE_DISPLAY}
+                  </a>
+                  <a href={PHONE_TEL_HREF_2} className="text-gray-400 hover:text-orange-500 transition-colors">
+                    {PHONE_DISPLAY_2}
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-orange-500 flex-shrink-0" />
-                <a href="mailto:info@utkarshinfratech.com" className="text-gray-400 hover:text-orange-500 transition-colors break-all">
-                  info@utkarshinfratech.com
+                <a href={MAILTO_HREF} className="text-gray-400 hover:text-orange-500 transition-colors break-all">
+                  {BUSINESS_EMAIL}
                 </a>
               </li>
             </ul>
