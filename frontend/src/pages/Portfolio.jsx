@@ -16,6 +16,10 @@ import {
 } from 'lucide-react';
 import pncInfratechLogo from '@/assets/images/pnc_infratech_ltd_logo.png';
 import superhouseLogo from '@/assets/images/superhouse_logo.png';
+import OngoingProjectsSection from '@/components/portfolio/OngoingProjectsSection';
+import EquipmentResourcesSection from '@/components/portfolio/EquipmentResourcesSection';
+import WorkOrdersSection from '@/components/portfolio/WorkOrdersSection';
+import { getOngoingProjectsJsonLd } from '@/data/portfolioExtended';
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -108,6 +112,8 @@ function ContactCard({ icon: Icon, title, value }) {
 }
 
 export default function Portfolio() {
+  const ongoingProjectsJsonLd = getOngoingProjectsJsonLd();
+
   const overview =
     'Utkarsh Infratech Builder and Contractor is a trusted name in the field of construction. We specialize in high-quality building, road, and infrastructure projects across Uttar Pradesh and other regions. Our aim is to deliver excellence through strong work ethics, timely completion, and sustainable construction practices.';
 
@@ -194,6 +200,10 @@ export default function Portfolio() {
 
   return (
     <main className="bg-gray-50 text-gray-900 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ongoingProjectsJsonLd) }}
+      />
       <section className="relative min-h-[80vh] flex items-center overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
@@ -330,6 +340,12 @@ export default function Portfolio() {
               </div>
             </div>
           </SectionCard>
+
+          <div className="space-y-14 sm:space-y-16">
+            <OngoingProjectsSection />
+            <EquipmentResourcesSection />
+            <WorkOrdersSection />
+          </div>
 
           <SectionCard icon={Briefcase} title="Our Clientele">
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-1">

@@ -168,6 +168,18 @@ export default function Footer() {
             <ArrowUp className="w-5 h-5" />
           </button>
         </div>
+
+        <p className="text-center text-gray-500 text-xs sm:text-sm pb-2 pt-2 border-t border-gray-800/80">
+          Designed by{' '}
+          <a
+            href="https://vercomsolutions.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-400 hover:text-orange-400 transition-colors underline-offset-2 hover:underline"
+          >
+            Vercom Solutions Pvt. Ltd.
+          </a>
+        </p>
       </div>
     </footer>
   );
